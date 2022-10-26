@@ -26,7 +26,7 @@ async function callDpeAPI(address_ban) {
 
   const axiosrequest1 = axios.get(`https://data.ademe.fr/data-fair/api/v1/datasets/dpe-v2-logements-existants/lines?qs=(Identifiant__BAN:"${id}")`);
   const axiosrequest2 = axios.get(`https://data.ademe.fr/data-fair/api/v1/datasets/dpe-v2-logements-neufs/lines?qs=(Identifiant__BAN:"${id}")`);
-  const axiosrequest3 = axios.get(`https://data.ademe.fr/data-fair/api/v1/datasets/dpe-v2-logements-neufs/lines?qs=(Identifiant__BAN:"${id}")`);
+  const axiosrequest3 = axios.get(`https://data.ademe.fr/data-fair/api/v1/datasets/dpe-v2-tertiaire-2/lines?qs=(Identifiant__BAN:"${id}")`);
   // you could also use destructuring to have an array of responses
   await axios.all([axiosrequest1, axiosrequest2, axiosrequest3]).then(axios.spread(function (res1, res2, res3) {
     const all_dpe = [...res1.data.results, ...res2.data.results, ...res3.data.results]
